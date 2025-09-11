@@ -4,6 +4,7 @@
 This repository contains python scripts to parse/load, clean, and standardize medical codex datasets.
 
 ## Repository Structure
+```bash
 medical-codex-pipeline/
 ├── input/ # Raw codex files (txt, csv, xlsx, rff)
 │ ├── npi/
@@ -29,14 +30,14 @@ medical-codex-pipeline/
 ├── pipeline.log # Logs (auto-created)
 ├── README.md
 └── requirements.txt
+```
 
 ### 1. Clone this repository
 ```bash
 git clone https://github.com/wantwotree23/medical-codex-pipeline.git
 cd medical-codex-pipeline
-pip install all dependencies
- pip install -r requirements.txt
- ```
+pip install -r requirements.txt
+```
 
 ### 2. Usage of the scripts
 -Download the raw dataset file from each medical codex website and place it into their corresponding input files.
