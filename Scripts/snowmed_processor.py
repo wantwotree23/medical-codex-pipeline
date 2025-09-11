@@ -8,7 +8,7 @@ sys.path.append(str(base_dir))
 
 from utils.common_functions import save_to_formats, logger
 
-def load_and_parse_snowmed_file(path: Path) -> pd.DataFrame:
+def load_and_parse_snowmed_file(path: Path, nrows: int = 1000000) -> pd.DataFrame:
     """Load and parse snowmed dataset from txt file and build DataFrame"""
     logger.info(f'Loading and parsing snowmed file: {path}')
     dtype = {
@@ -22,7 +22,7 @@ def load_and_parse_snowmed_file(path: Path) -> pd.DataFrame:
         'term': 'string',
         'caseSignificanceId': 'string'
     }
-    df = pd.read_csv(path, sep= '\t', header= 0, dtype= dtype, encoding= 'utf-8', on_bad_lines= 'skip')
+    df = pd.read_csv(path, sep= '\t', header= 0, dtype= dtype, encoding= 'utf-8', on_bad_lines= 'skip', nrows= nrows)
     logger.info(f'Successfully loaded snowmed file')
     return df
 
@@ -39,7 +39,7 @@ def process_snowmed(df: pd.DataFrame) -> pd.DataFrame:
 
 input_file = base_dir / 'input' / 'snowmed' / 'sct2_Description_Full-en_US1000124_20250301.txt'
 logger.info('Starting snowmed processing script')
-parsed_df = load_and_parse_snowmed_file(input_file)
+parsed_df = load_and_parse_snowmed_file(input_file, nrows= 1000000)
 snowmed_small = process_snowmed(parsed_df)
 save_to_formats(snowmed_small, 'snowmed_small')
 logger.info(f'Finished snowmed processing script')
