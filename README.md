@@ -49,7 +49,7 @@ pip install -r requirements.txt
 
 ### Script differences
 1. Loinc processor was the first completed script. It followed the example guideline code provided by Hants Williams in the following repository: https://github.com/hantswilliams/HHA-507-2025.git
-2. The other processors used 1 function block to for loading the dataset and a second function block to process the dataframe.
+2. The other processors used 1 function block for loading the dataset and a second function block to process the dataframe.
 3. ICD10CM processor differs by having a 3rd function block in order to parse the datase file before loading it into a dataframe.
 4. SNOWMED processor combined the parsing and loading process leading to a single function block performing parsing and loading steps.
 5. There are 2 processors that needed N/A fills to replace white spaces.
